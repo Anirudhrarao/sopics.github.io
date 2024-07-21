@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorry Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Oops! I goofed up...</h1>
+        <img src="profile.jpg" alt="Funny Image" class="funny-img">
+        <p class="apology">I'm really sorry. Please forgive me!</p>
+        <button class="forgive-btn">Forgive Me!</button>
+        <div class="balloon-container">
+            <div class="balloon">😊</div>
+            <div class="balloon">🎈</div>
+            <div class="balloon">💛</div>
+        </div>
+        <div class="heart-container" id="heartContainer"></div>
+    </div>
+    <script>
+        document.querySelector('.forgive-btn').addEventListener('click', function() {
+    document.querySelectorAll('.balloon').forEach(function(balloon) {
+        balloon.style.animationPlayState = 'running';
+    });
+
+    const heartContainer = document.getElementById('heartContainer');
+    for (let i = 0; i < 30; i++) {
+        let heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.animationDelay = `${Math.random() * 2}s`;
+        heartContainer.appendChild(heart);
+    }
+});
+
+
+    </script>
+</body>
+</html>
